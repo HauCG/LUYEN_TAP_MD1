@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="number" id="so" placeholder="Nhập số cần kiểm tra">
+<input type="button" value="Kiểm Tra" onclick="hienIs()"><br>
+<input type="text" id="amr" placeholder="Nhập dãy">
+<input type="button" value="Kiểm Tra" onclick="hienSum()">
+<script>
+    function isASquareNumber(n) {
+        for (let i = 1; i <= n / 2; i++) {
+            if (i * i === n) {
+                return true;
+            }
+        }
+        return false;
+    }
+    function hienIs() {
+        let n = parseInt(document.getElementById("so").value);
+        let isSquare = isASquareNumber(n);
+        document.write(`Số ${n} ${isSquare ? 'là' : 'không phải là'} số chính phương.`);
+    }
+    function sumOfSquareNumbers(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) {
+                sum += arr[i];
+            }
+        }
+        return sum;
+    }
+    function hienSum() {
+        let amr = document.getElementById("amr").value.split(',').map(Number);
+        let sum = sumOfSquareNumbers(amr);
+        document.write(sum);
+    }
+</script>
+</body>
+</html>

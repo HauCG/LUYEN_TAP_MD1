@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMW Cars</title>
+</head>
+<body>
+<input type="button" value="sumCarCapacities" onclick="sumCarCapacities()">
+<p id="k1"></p>
+<input type="button" value="countGreenCar" onclick="countGreenCar()">
+<p id="k2"></p>
+<input type="button" value="findMaxCapacity" onclick="findMaxCapacity()">
+<p id="k3"></p>
+<input type="button" value="getNameFormDownCapacity" onclick="getNameFormDownCapacity()">
+<p id="k4"></p>
+<script>
+    class BmwList {
+        constructor(name, color, capacity) {
+            this.name = name;
+            this.color = color;
+            this.capacity = capacity;
+        }
+    }
+    let list = [];
+
+    function inputArrayCars() {
+        let BMW7S = new BmwList("BMW 7 Series", "Black", 5);
+        let BMWX5 = new BmwList("BMW X5", "Green", 7);
+        let BMWZ4 = new BmwList("BMW Z4", "Red", 2);
+        list = [BMW7S, BMWX5, BMWZ4];
+    }
+    inputArrayCars();
+
+    function sumCarCapacities() {
+        let sum = 0;
+        for (let i = 0; i < list.length; i++) {
+            sum += list[i].capacity;
+        }
+        document.getElementById("k1").innerText = sum;
+        return sum;
+    }
+
+    function countGreenCar() {
+        let count = 0;
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].color === "Green") {
+                count++;
+            }
+        }
+        document.getElementById("k2").innerText = count;
+        return count;
+    }
+
+    function findMaxCapacity() {
+        let max = list[0].capacity;
+        for (let i = 1; i < list.length; i++) {
+            if (max < list[i].capacity){
+                max = list[i].capacity;
+            }
+        }
+        document.getElementById("k3").innerText = max;
+        return max;
+    }
+    function getNameFormDownCapacity() {
+        let newarr = [];
+        for (let i = 0; i < list.length; i++) {
+            for (let j = 0; j < list.length - 1; j++) {
+                if (list[j].capacity > list[j + 1].capacity) {
+                    let temp = list[j];
+                    list[j] = list[j + 1];
+                    list[j + 1] = temp;
+                }
+            }
+        }
+        for (let i = 0; i < list.length; i++) {
+            newarr.push(list[i].name);
+        }
+        document.getElementById("k4").innerText = newarr.join(',');
+        return newarr;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập và Xuất một mảng số nguyên</title>
+</head>
+<body>
+<P>Nhập và Xuất một mảng số nguyên</P>
+<input type="text" id="arr" placeholder="Nhập mảng số nguyên cách nhau bởi dấu,">
+<input type="button" value="Nhận dữ liệu" onclick="outPutData()">
+
+<script>
+    function inPutData() {
+        let arr = document.getElementById("arr").value.split(',').map(Number);
+        return arr;
+    }
+    function outPutData() {
+        let arr = inPutData();
+        document.write(arr);
+    }
+</script>
+
+</body>
+</html>
+
+

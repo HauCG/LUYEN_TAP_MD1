@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Number Operations</title>
+</head>
+<body>
+<input type="button" value="RANDOM 10 PT" onclick="kq1()">
+<p id="ketqua1"></p>
+<input type="button" value="FIND % 5" onclick="kq2()">
+<p id="day2"></p>
+<p id="ketqua2"></p>
+<input type="button" value="SUM EVEN" onclick="kq3()">
+<p id="day3"></p>
+<p id="ketqua3"></p>
+<script>
+    //bai1
+    function createArray() {
+        let arr1 = [];
+        for (let i = 0; i < 10; i++) {
+            arr1.push(Math.floor(Math.random() * 100) + 1);
+        }
+        return arr1;
+    }
+    function kq1() {
+        let KQua1 = createArray();
+        document.getElementById('ketqua1').innerText = KQua1.join(', ');
+    }
+    //bai2
+    function listOut() {
+        let arr2 = createArray();
+        let result = []; // Define result array here
+        for (let p = 0; p < arr2.length; p++) {
+            if (arr2[p] % 5 === 0) {
+                result.push(arr2[p]);
+            }
+        }
+        document.getElementById('day2').innerText = arr2.join(', ');
+        return result;
+    }
+    function kq2() {
+        let KQua2 = listOut();
+        document.getElementById('ketqua2').innerText = KQua2.join(', ');
+    }
+    //bai3
+    let arr3 = createArray();
+    let average = avg(arr3);
+    function avg(arr) {
+        let sum = 0;
+        for (let j = 0; j < arr3.length; j++) {
+            sum += arr3[j];
+        }
+        let avgr = sum / arr3.length;
+        return avgr;
+    }
+    function kq3() {
+        document.getElementById('day3').innerText = arr3.join(', ');
+        document.getElementById('ketqua3').innerText = average;
+    }
+
+</script>
+</body>
+</html>

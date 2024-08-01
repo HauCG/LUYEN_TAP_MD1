@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merge Arrays</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Gộp hai mảng lại</h1>
+<input type="text" id="ar1" placeholder="Nhập mảng 1"><br>
+<input type="text" id="ar2" placeholder="Nhập mảng 2"><br>
+<input type="button" value="Hiện mảng gộp tăng dần" onclick="hienKetQua()">
+<script>
+    function sapXepUp() {
+        let array1 = document.getElementById("ar1").value.split(',').map(Number);
+        let array2 = document.getElementById("ar2").value.split(',').map(Number);
+        let arr = array1.concat(array2);
+        let n = arr.length;
+        for (let i = 0; i < n - 1; i++) {
+            for (let j = n - 1; j > i; j--) {
+                if (arr[j] < arr[j - 1]) {
+                    let temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    function hienKetQua() {
+        let c = sapXepUp();
+        document.write("Mảng gộp tăng dần: " + c.join(', '));
+    }
+</script>
+</body>
+</html>
